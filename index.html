@@ -39,7 +39,7 @@
 
         function open(has_appli) {
             setCookie("appli",true,1000);
-
+            alert(has_appli)
                 if (IS_IOS) {
                     if(has_appli) {
                         window.location = $("meta[property='al:ios:url']").attr("content") || $("meta[property='al:android:url']").attr("content");
