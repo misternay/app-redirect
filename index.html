@@ -8,8 +8,8 @@
     <meta property="al:android:package" content="ktbcs.netbank" />
 </head>
 <body>
-    <input id="yes" type="button" onclick="open(true)">YES</input>
-    <input id="NO" type="button">NO</input>
+    <div style="width:200px;height: 200px;background: red;" onclick="open(true)">
+    </div>
     <script>
         var MOBILE_BASE_URL = ""
 
@@ -53,6 +53,7 @@
                     }
                 } else if (IS_ANDROID) {
                         window.location = 'intent:/'+$("meta[property='al:android:url']").attr("content").split(':/')[1]+'#Intent;package='+$("meta[property='al:android:package']").attr("content")+';scheme='+$("meta[property='al:android:url']").attr("content").split(':/')[0]+';launchFlags=268435456;end;';
+                        alert('intent:/'+$("meta[property='al:android:url']").attr("content").split(':/')[1]+'#Intent;package='+$("meta[property='al:android:package']").attr("content")+';scheme='+$("meta[property='al:android:url']").attr("content").split(':/')[0]+';launchFlags=268435456;end;')
                 }
         }
 </script>
