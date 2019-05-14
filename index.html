@@ -1,11 +1,11 @@
 <html>
 <head>
-<meta property="al:ios:url" content="ktbnext://next.co.th/line.tc.buysell?token='someToken'" />
-<meta property="al:ios:app_store_id" content="id436753378" />
-<meta property="al:ios:app_name" content="KTB netbank" />
-<meta property="al:android:url" content="ktbnext://next.co.th/line.tc.buysell?token='someToken'" />
-<meta property="al:android:app_name" content="KTB netbank" />
-<meta property="al:android:package" content="ktbcs.netbank" />
+    <meta property="al:ios:url" content="ktbnext://next.co.th/line.tc.buysell?token='someToken'" />
+    <meta property="al:ios:app_store_id" content="id436753378" />
+    <meta property="al:ios:app_name" content="KTB netbank" />
+    <meta property="al:android:url" content="ktbnext://next.co.th/line.tc.buysell?token='someToken'" />
+    <meta property="al:android:app_name" content="NEXT" />
+    <meta property="al:android:package" content="ktbcs.netbank" />
 </head>
 <body>
     <input id="yes" type="button" onclick="open(true)">YES</input>
@@ -38,22 +38,22 @@
             IS_MOBILE = IS_IOS || IS_ANDROID;
 
         function open(has_appli) {
-        setCookie("appli",true,1000);
+            setCookie("appli",true,1000);
 
-            if (IS_IOS) {
-                if(has_appli) {
-                    window.location = $("meta[property='al:ios:url']").attr("content") || $("meta[property='al:android:url']").attr("content");
-                    setTimeout(function() {
-                        if (!document.webkitHidden) {
-                            window.location = 'http://itunes.apple.com/app/id' + $("meta[property='al:ios:app_store_id']").attr("content");
-                        }
-                    }, 25);
-                } else {
-                     window.location = 'http://itunes.apple.com/app/id'+$("meta[property='al:ios:app_store_id']").attr("content");
+                if (IS_IOS) {
+                    if(has_appli) {
+                        window.location = $("meta[property='al:ios:url']").attr("content") || $("meta[property='al:android:url']").attr("content");
+                        setTimeout(function() {
+                            if (!document.webkitHidden) {
+                                window.location = 'http://itunes.apple.com/app/id' + $("meta[property='al:ios:app_store_id']").attr("content");
+                            }
+                        }, 25);
+                    } else {
+                        window.location = 'http://itunes.apple.com/app/id'+$("meta[property='al:ios:app_store_id']").attr("content");
+                    }
+                } else if (IS_ANDROID) {
+                        window.location = 'intent:/'+$("meta[property='al:android:url']").attr("content").split(':/')[1]+'#Intent;package='+$("meta[property='al:android:package']").attr("content")+';scheme='+$("meta[property='al:android:url']").attr("content").split(':/')[0]+';launchFlags=268435456;end;';
                 }
-            } else if (IS_ANDROID) {
-                    window.location = 'intent:/'+$("meta[property='al:android:url']").attr("content").split(':/')[1]+'#Intent;package='+$("meta[property='al:android:package']").attr("content")+';scheme='+$("meta[property='al:android:url']").attr("content").split(':/')[0]+';launchFlags=268435456;end;';
-            }
         }
 </script>
 </body>
